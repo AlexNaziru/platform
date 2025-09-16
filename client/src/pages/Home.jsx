@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Creations from "../components/Creations.jsx";
+import About from "../components/About.jsx";
+import FAQ from "../components/FAQ.jsx";
+import Footer from "../components/Footer.jsx";
 
 
 const Home = () => {
@@ -117,7 +120,9 @@ const Home = () => {
                   `}</style>
             </div>
             <Creations/>
-
+            <About/>
+            <FAQ />
+            <Footer />
         </>
     )
 }

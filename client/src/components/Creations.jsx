@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import eBon from '../assets/ebon.png';
+import Csharp from '../assets/Csharp_App.png';
+import GISApp from '../assets/GIS_App.png';
+import GameDev from '../assets/game_dev.png';
 
 const Creations = () => {
 
@@ -9,54 +13,31 @@ const Creations = () => {
         setIsVisible(true);
     }, []);
 
+
     const creationsData = [
         {
             id: 1,
-            src: "https://images.unsplash.com/photo-1719368472026-dc26f70a9b76?q=80&w=736&auto=format&fit=crop",
+            src: eBon,
             title: "Web Development",
             category: "Web applications"
         },
         {
             id: 2,
-            src: "https://images.unsplash.com/photo-1649265825072-f7dd6942baed?q=80&w=798&auto=format&fit=crop",
+            src: Csharp,
             title: "Desktop Application Development",
             category: "Designing and building"
         },
         {
             id: 3,
-            src: "https://images.unsplash.com/photo-1555212697-194d092e3b8f?q=80&w=687&auto=format&fit=crop",
-            title: "System Administration",
-            category: "Managing and maintaining"
+            src: GISApp,
+            title: "Web GIS Application",
+            category: "Development and deployment"
         },
         {
             id: 4,
-            src: "https://images.unsplash.com/photo-1729086046027-09979ade13fd?q=80&w=862&auto=format&fit=crop",
-            title: "Data Science",
-            category: "Data visualization"
-        },
-        {
-            id: 5,
-            src: "https://images.unsplash.com/photo-1601568494843-772eb04aca5d?q=80&w=687&auto=format&fit=crop",
-            title: "Software Release Management",
-            category: "Packaging, testing and deploying"
-        },
-        {
-            id: 6,
-            src: "https://images.unsplash.com/photo-1585687501004-615dfdfde7f1?q=80&w=703&auto=format&fit=crop",
-            title: "Game Development",
+            src: GameDev,
+            title: "Game development",
             category: "With Unity"
-        },
-        {
-            id: 7,
-            src: "https://images.unsplash.com/photo-1719368472026-dc26f70a9b76?q=80&w=736&auto=format&fit=crop",
-            title: "DICOM & PACS",
-            category: "Orthanc Ohif"
-        },
-        {
-            id: 8,
-            src: "https://images.unsplash.com/photo-1649265825072-f7dd6942baed?q=80&w=798&auto=format&fit=crop",
-            title: "System architecture",
-            category: "Designing systems"
         }
     ];
 
@@ -126,22 +107,6 @@ const Creations = () => {
                                 <div className={`transform transition-all duration-300 ${hoveredIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                                     <span className="text-xs font-medium text-purple-500 mb-1 block">{item.category}</span>
                                     <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-
-                                    <button className="group/btn inline-flex items-center gap-2 text-sm text-white/90 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 hover:border-white/40 transition-all duration-300">
-                                        <span>Explore</span>
-                                        <svg
-                                            width="16"
-                                            height="16"
-                                            viewBox="0 0 13 13"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300"
-                                        >
-                                            <path d="M8.125 1.625H11.375V4.875" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                            <path d="M5.41602 7.58333L11.3743 1.625" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                            <path d="M9.75 7.04167V10.2917C9.75 10.579 9.63586 10.8545 9.4327 11.0577C9.22953 11.2609 8.95398 11.375 8.66667 11.375H2.70833C2.42102 11.375 2.14547 11.2609 1.9423 11.0577C1.73914 10.8545 1.625 10.579 1.625 10.2917V4.33333C1.625 4.04602 1.73914 3.77047 1.9423 3.5673C2.14547 3.36414 2.42102 3.25 2.70833 3.25H5.95833" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-                                        </svg>
-                                    </button>
                                 </div>
                             </div>
 
@@ -149,19 +114,6 @@ const Creations = () => {
                             <div className="absolute top-4 right-4 w-8 h-8 border border-violet-400/30 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
                         </div>
                     ))}
-                </div>
-
-                {/* Call to action */}
-                <div className={`text-center mt-16 transform transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                    <button className="group relative px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full font-semibold text-white shadow-lg hover:shadow-violet-500/25 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden">
-                        <span className="absolute inset-0 bg-gradient-to-r from-violet-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                            <span className="relative flex items-center gap-2">
-                              View All Works
-                              <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                              </svg>
-                            </span>
-                    </button>
                 </div>
             </div>
 
