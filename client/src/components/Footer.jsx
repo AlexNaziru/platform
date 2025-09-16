@@ -152,7 +152,7 @@ const Footer = () => {
                 {/* Bottom section */}
                 <div className={`py-8 flex flex-col md:flex-row items-center justify-between gap-4 transform transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                     <p className="text-gray-400 text-center md:text-left">
-                        Copyright © 2025 <span className="text-violet-300 hover:text-violet-200 transition-colors duration-300">YourBrand</span>. All rights reserved.
+                        Copyright © <span>{new Date().getFullYear()}</span> <span className="text-violet-300 hover:text-violet-200 transition-colors duration-300">Alex</span>. All rights reserved.
                     </p>
 
                     <div className="flex items-center gap-6">
