@@ -34,17 +34,17 @@ const Home = () => {
                     {/* Animated badge */}
                     <div className={`inline-flex items-center px-4 py-2 mb-8 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 backdrop-blur-sm transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                         <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                        <span className="text-sm text-gray-300">Now Live</span>
+                        <span className="text-sm text-gray-300">In development</span> {/* Remember to change the text to Now Live when we launch */}
                     </div>
 
                     {/* Main heading with gradient text */}
                     <h1 className={`text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                       <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent animate-pulse">
-                        Welcome to the
+                        From Idea to
                       </span>
                                     <br />
                                     <span className="bg-gradient-to-r from-violet-400 via-purple-500 to-fuchsia-500 bg-clip-text text-transparent animate-gradient-x bg-[length:400%_400%]">
-                        Future
+                        Reality
                       </span>
                     </h1>
 

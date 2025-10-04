@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from "../assets/computer.png";
 
 const Footer = () => {
 
@@ -53,7 +54,7 @@ const Footer = () => {
     ];
 
     return (
-        <div className='min-h-screen w-full bg-slate-950 flex flex-col items-center justify-center text-center text-white relative overflow-hidden py-20'>
+        <div className='min-h-screen w-full bg-slate-950 flex flex-col items-center justify-center text-center text-white relative overflow-hidden pt-20'>
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-1/4 left-1/6 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -73,12 +74,14 @@ const Footer = () => {
                             {/* Logo placeholder - you can replace with your actual logo */}
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
+                                    <img
+                                        src={logo}
+                                        alt="Company Logo"
+                                        className="h-8 w-8 object-cover"
+                                    />
                                 </div>
                                 <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                                  YourBrand
+                                  Alex
                                 </span>
                             </div>
 
@@ -126,13 +129,13 @@ const Footer = () => {
                                     <svg className="w-5 h-5 text-violet-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
-                                    <span className="text-gray-400">hello@yourbrand.com</span>
+                                    <span className="text-gray-400">alex.naziru.dev@gmail.com</span>
                                 </div>
                                 <div className="flex items-start gap-3">
                                     <svg className="w-5 h-5 text-violet-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
-                                    <span className="text-gray-400">+40 722 123-456</span>
+                                    <span className="text-gray-400">+40 757 611 085</span>
                                 </div>
                                 <div className="flex items-start gap-3">
                                     <svg className="w-5 h-5 text-violet-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

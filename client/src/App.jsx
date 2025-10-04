@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import Products from "./pages/Products.jsx";
 import Admin from "./pages/Admin.jsx";
 import Navbar from "./components/Navbar.jsx";
+import WebDev from "./pages/WebDev.jsx";
 
 const App = () => {
     return (
@@ -13,7 +14,7 @@ const App = () => {
             <Navbar/>
             <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='/products' element={<Products/>} />
+                <Route path={'/webdev'} element={<WebDev/>} />
                 <Route path='/ai' element={<Layout/>}>
                     <Route index element={<Dashboard/>} />
                     <Route path='admin' element={<Admin/>} />
