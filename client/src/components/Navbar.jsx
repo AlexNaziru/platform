@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import logo from "../assets/computer.png";
 import { Link } from 'react-router-dom';
 
@@ -37,7 +37,7 @@ export default function Navbar() {
     // Shared background/blur/shadow styles
     const bgClasses =
         (scrolled || open)
-            ? "bg-gray-800/60 backdrop-blur-lg shadow-lg"
+            ? "bg-gray-800 shadow-lg"
             : "bg-transparent shadow-none";
 
     return (
@@ -108,7 +108,7 @@ export default function Navbar() {
                                                 transition-all duration-300 origin-top
                                                 ${dropdownOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}
                                 >
-                                    <div className="bg-gray-800/60 backdrop-blur-lg shadow-lg rounded-2xl p-3 relative w-48">
+                                    <div className="bg-gray-800 backdrop-blur-lg shadow-lg rounded-2xl p-3 relative w-48">
                                         {/* Arrow pointer */}
                                         <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-gray-800/60 backdrop-blur-lg rotate-45"></div>
 

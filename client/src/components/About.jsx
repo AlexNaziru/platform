@@ -23,7 +23,7 @@ const About = () => {
                 "Interactive mapping interface"
             ],
             tech: ["GIS", "Web Mapping", "Real-time Data"],
-            gradient: "from-green-500 to-emerald-600"
+            gradient: "from-blue-500 to-indigo-600"
         },
         {
             id: 2,
@@ -38,7 +38,7 @@ const About = () => {
                 "Multi-sanatorium compatibility"
             ],
             tech: ["C#", "MVVM", "WPF", "Desktop"],
-            gradient: "from-blue-500 to-cyan-600"
+            gradient: "from-purple-500 to-violet-600"
         },
         {
             id: 3,
@@ -53,7 +53,7 @@ const About = () => {
                 "Compliance management"
             ],
             tech: ["Web App", "API Integration", "Billing"],
-            gradient: "from-purple-500 to-violet-600"
+            gradient: "from-purple-500 to-fuchsia-600"
         }
     ];
 

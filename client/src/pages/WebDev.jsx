@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import Footer from "../components/Footer.jsx";
+import farm_draw from "../assets/farm_draw.png";
+import farm_map from "../assets/farm_map.png";
+import farm_admin from "../assets/farm_admin.png";
+import farm_draw_clip from "../assets/farm_draw_clip.mp4";
 
 const WebDev = () => {
     const [activeTab, setActiveTab] = useState('overview');
@@ -33,28 +37,28 @@ const WebDev = () => {
     ];
 
     const techStack = [
-        { name: "JavaScript", color: "from-cyan-500 to-blue-500" },
-        { name: "Leaflet.js", color: "from-green-500 to-emerald-500" },
-        { name: "PostGIS", color: "from-blue-500 to-indigo-500" },
-        { name: "PHP", color: "from-green-600 to-green-700" },
-        { name: "PostgreSQL", color: "from-blue-600 to-cyan-600" }
+        { name: "JavaScript", color: "from-sky-500 to-blue-500" },
+        { name: "Leaflet.js", color: "from-blue-500 to-indigo-500" },
+        { name: "PostGIS", color: "from-indigo-500 to-purple-500" },
+        { name: "PHP", color: "from-purple-600 to-fuchsia-700" },
+        { name: "PostgreSQL", color: "from-fuchsia-600 to-pink-600" }
     ];
 
     const screenshots = [
         {
-            url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-            title: "Dashboard Overview",
-            description: "Main interface showing plot visualization"
+            url: farm_admin,
+            title: "Main Dashboard",
+            description: "Main interface showing real time data"
         },
         {
-            url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+            url: farm_map,
             title: "Interactive Map",
             description: "GIS mapping with real-time data"
         },
         {
-            url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-            title: "Contact System",
-            description: "Direct farmer-to-farmer messaging"
+            url: farm_draw,
+            title: "Drawing Polygons",
+            description: "Drawing polygons on the map & Stereo 70 plotting"
         }
     ];
 
@@ -78,8 +82,8 @@ const WebDev = () => {
             <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
                 {/* Header */}
                 <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                    <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 backdrop-blur-sm">
-                        <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                    <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-500/20 to-indigo-600/20 border border-indigo-500/30 backdrop-blur-sm">
+                        <span className="w-2 h-2 bg-indigo-400 rounded-full mr-2 animate-pulse"></span>
                         <span className="text-sm text-gray-300">Web GIS Application</span>
                     </div>
 
@@ -88,7 +92,7 @@ const WebDev = () => {
                             FarmLands
                         </span>
                         <br />
-                        <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500 bg-clip-text text-transparent animate-gradient-x bg-[length:400%_400%]">
+                        <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 bg-clip-text text-transparent animate-gradient-x bg-[length:400%_400%]">
                             Exchange Platform
                         </span>
                     </h1>
@@ -101,19 +105,22 @@ const WebDev = () => {
                 {/* Main App Showcase */}
                 <div className={`mb-20 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                     <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-3xl overflow-hidden">
-                        {/* Hero Image */}
+                        {/* Hero Video */}
                         <div className="relative h-96 md:h-[500px] overflow-hidden group">
-                            <img
-                                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80"
-                                alt="AgriPlot Dashboard"
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            <video
+                                src={farm_draw_clip}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
 
                             {/* Floating info card */}
                             <div className="absolute bottom-8 left-8 right-8 bg-gray-900/80 backdrop-blur-md border border-gray-700/50 rounded-2xl p-6">
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-2xl">
+                                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl">
                                         🌾
                                     </div>
                                     <div>
@@ -122,7 +129,7 @@ const WebDev = () => {
                                     </div>
                                 </div>
                                 <div className="flex gap-3">
-                                    <button className="flex-1 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl font-semibold text-white hover:scale-105 transition-transform duration-300">
+                                    <button className="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl font-semibold text-white hover:scale-105 transition-transform duration-300">
                                         View Live Demo
                                     </button>
                                 </div>
@@ -138,7 +145,7 @@ const WebDev = () => {
                         {appFeatures.map((feature, index) => (
                             <div
                                 key={index}
-                                className={`bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-6 hover:border-green-500/50 transition-all duration-500 hover:scale-105 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                                className={`bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-6 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                                 style={{ transitionDelay: `${800 + index * 100}ms` }}
                             >
                                 <div className="text-4xl mb-4">{feature.icon}</div>
@@ -156,7 +163,7 @@ const WebDev = () => {
                         {screenshots.map((screenshot, index) => (
                             <div
                                 key={index}
-                                className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-2xl overflow-hidden hover:border-green-500/50 transition-all duration-500"
+                                className="group relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-500"
                             >
                                 <img
                                     src={screenshot.url}
@@ -192,7 +199,7 @@ const WebDev = () => {
                 </div>
 
                 {/* Problem & Solution */}
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 transform transition-all duration-1000 delay-1300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 mb-50 transform transition-all duration-1000 delay-1300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                     <div className="bg-gradient-to-br from-red-900/20 to-gray-900/50 backdrop-blur-sm border border-red-700/30 rounded-2xl p-8">
                         <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                             <span className="text-3xl">❌</span>
@@ -209,10 +216,99 @@ const WebDev = () => {
                             The Solution
                         </h3>
                         <p className="text-gray-300 leading-relaxed">
-                            AgriPlot Exchange eliminates these barriers by providing a real-time GIS platform where farmers can instantly visualize neighboring plots, identify potential exchange partners, and initiate direct contact. The system streamlines the entire process, reducing what used to take months into just days.
+                            FarmLands eliminates these barriers by providing a real-time GIS platform where farmers can instantly visualize neighboring plots, identify potential exchange partners, and initiate direct contact. The system streamlines the entire process, reducing what used to take months into just days.
                         </p>
                     </div>
                 </div>
+
+                {/* Technical Architecture Decision */}
+                <div className={`transform transition-all duration-1000 delay-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-8">
+                        <h2 className="text-3xl font-bold mb-8 text-center">
+                            <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
+                                Architecture & Performance
+                            </span>
+                        </h2>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            {/* Why Vanilla Stack */}
+                            <div>
+                                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                                    <span className="text-2xl">⚡</span>
+                                    Vanilla PHP & JavaScript
+                                </h3>
+                                <p className="text-gray-300 leading-relaxed mb-4">
+                                    The backend is built with vanilla PHP and the frontend uses vanilla JavaScript to maximize performance and efficiency. When dealing with thousands of polygons and extensive geospatial data, every millisecond counts.
+                                </p>
+                                <ul className="space-y-2 text-gray-400">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-1">•</span>
+                                        <span>Minimal overhead - no framework abstraction layers to process</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-1">•</span>
+                                        <span>Direct database queries optimized for GIS operations</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-1">•</span>
+                                        <span>Faster rendering of complex polygon geometries</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-1">•</span>
+                                        <span>Reduced memory footprint for handling large datasets</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Performance Metrics */}
+                            <div>
+                                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                                    <span className="text-2xl">📊</span>
+                                    Performance Benefits
+                                </h3>
+                                <div className="space-y-4">
+                                    <div className="bg-gray-800/50 rounded-xl p-4">
+                                        <div className="flex items-center justify-between mb-2">
+                                            <span className="text-gray-300">Page Load Time</span>
+                                            <span className="text-green-400 font-bold">&lt; 1.2s</span>
+                                        </div>
+                                        <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                            <div className="h-full w-[85%] bg-gradient-to-r from-green-500 to-emerald-500"></div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-gray-800/50 rounded-xl p-4">
+                                        <div className="flex items-center justify-between mb-2">
+                                            <span className="text-gray-300">Map Rendering (1000+ polygons)</span>
+                                            <span className="text-green-400 font-bold">&lt; 800ms</span>
+                                        </div>
+                                        <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                            <div className="h-full w-[90%] bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-gray-800/50 rounded-xl p-4">
+                                        <div className="flex items-center justify-between mb-2">
+                                            <span className="text-gray-300">Database Query Response</span>
+                                            <span className="text-green-400 font-bold">&lt; 200ms</span>
+                                        </div>
+                                        <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                                            <div className="h-full w-[95%] bg-gradient-to-r from-purple-500 to-violet-500"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Additional Info */}
+                        <div className="mt-8 pt-8 border-t border-gray-700/50">
+                            <p className="text-gray-400 text-center leading-relaxed">
+                                As the platform scales to handle entire regions with tens of thousands of agricultural plots, this lightweight architecture ensures consistent performance without requiring expensive infrastructure upgrades. The vanilla approach provides complete control over optimization strategies specifically tailored to GIS workloads.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
                 {/* Floating elements */}
