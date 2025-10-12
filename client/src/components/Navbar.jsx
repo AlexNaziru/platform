@@ -12,7 +12,7 @@ const navItems = [
 const productDropdown = [
     { name: "Web Dev", path: "/webdev" },
     { name: "Desktop Dev", path: "/desktop-dev" },
-    { name: "Game Dev", path: "/game-dev" }
+    { name: "Game Dev", path: "/space-shooter" }
 ];
 
 export default function Navbar() {

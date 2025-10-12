@@ -6,7 +6,6 @@ import farm_admin from "../assets/farm_admin.png";
 import farm_draw_clip from "../assets/farm_draw_clip.mp4";
 
 const WebDev = () => {
-    const [activeTab, setActiveTab] = useState('overview');
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -225,7 +224,7 @@ const WebDev = () => {
                 <div className={`transform transition-all duration-1000 delay-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                     <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-8">
                         <h2 className="text-3xl font-bold mb-8 text-center">
-                            <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
                                 Architecture & Performance
                             </span>
                         </h2>
