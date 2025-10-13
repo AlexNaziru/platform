@@ -1,9 +1,17 @@
 import React, {useEffect, useState} from 'react'
+import { Unity, useUnityContext } from 'react-unity-webgl';
 import Footer from "../components/Footer.jsx";
 
 const SpaceShooter = () => {
-
     const [isVisible, setIsVisible] = useState(false);
+
+    // Initializing Unity Context
+    const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
+        loaderUrl: "/unity/Build/WebGL.loader.js",
+        dataUrl: "/unity/Build/WebGL.data",
+        frameworkUrl: "/unity/Build/WebGL.framework.js",
+        codeUrl: "/unity/Build/WebGL.wasm",
+    });
 
     useEffect(() => {
         setIsVisible(true);
@@ -48,6 +56,68 @@ const SpaceShooter = () => {
                             **Blast off into deep space** in this classic 2D arcade shooter! Battle endless waves of hostile alien fleets, survive as long as possible, and chase the high score across treacherous asteroid fields and volatile nebulas.
                         </p>
                     </div>
+
+                    {/* Unity Game Container */}
+                    <div className={`mb-16 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-3xl overflow-hidden p-4">
+                            {/* Loading Progress */}
+                            {!isLoaded && (
+                                <div className="flex flex-col items-center justify-center py-20">
+                                    <div className="w-16 h-16 mb-6">
+                                        <svg className="animate-spin" viewBox="0 0 24 24" fill="none">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                    </div>
+                                    <p className="text-gray-300 mb-2">Loading Game...</p>
+                                    <div className="w-64 h-2 bg-gray-700 rounded-full overflow-hidden">
+                                        <div
+                                            className="h-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300"
+                                            style={{ width: `${loadingProgression * 100}%` }}
+                                        ></div>
+                                    </div>
+                                    <p className="text-gray-400 text-sm mt-2">{Math.round(loadingProgression * 100)}%</p>
+                                </div>
+                            )}
+
+                            {/* Unity Canvas */}
+                            <div className={`${!isLoaded ? 'hidden' : ''}`}>
+                                <Unity
+                                    unityProvider={unityProvider}
+                                    style={{
+                                        width: "50%",
+                                        maxWidth: "960px",
+                                        aspectRatio: "9/16",
+                                        margin: "0 auto",
+                                        borderRadius: "1rem"
+                                    }}
+                                />
+                            </div>
+
+                            {/* Game Controls Info */}
+                            {isLoaded && (
+                                <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div className="bg-gray-800/50 rounded-xl p-4 text-center">
+                                        <div className="text-2xl mb-2">🎮</div>
+                                        <p className="text-gray-300 font-semibold">Arrow Keys</p>
+                                        <p className="text-gray-400 text-sm">Move your ship</p>
+                                    </div>
+                                    <div className="bg-gray-800/50 rounded-xl p-4 text-center">
+                                        <div className="text-2xl mb-2">🔫</div>
+                                        <p className="text-gray-300 font-semibold">Space Bar or Left Mouse Button</p>
+                                        <p className="text-gray-400 text-sm">Fire weapons</p>
+                                    </div>
+                                    <div className="bg-gray-800/50 rounded-xl p-4 text-center">
+                                        <div className="text-2xl mb-2">🎯</div>
+                                        <p className="text-gray-300 font-semibold">Objective</p>
+                                        <p className="text-gray-400 text-sm">Survive & score</p>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+
 
 
                 </div>
