@@ -11,7 +11,7 @@ const navItems = [
 ];
 const productDropdown = [
     { name: "Web Dev", path: "/webdev" },
-    { name: "Desktop Dev", path: "/desktop-dev" },
+    { name: "Desktop Dev", path: "/crm" },
     { name: "Game Dev", path: "/space-shooter" }
 ];
 
@@ -28,7 +28,7 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    // Optional: lock body scroll when mobile menu is open
+    // Optional: lock body scroll when a mobile menu is open
     useEffect(() => {
         document.body.style.overflow = open ? "hidden" : "";
         return () => (document.body.style.overflow = "");
