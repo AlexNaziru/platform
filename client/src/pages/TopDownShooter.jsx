@@ -82,7 +82,7 @@ const TopDownShooter = () => {
                         <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-6">
                             <div className="text-4xl mb-4">⚡</div>
                             <h3 className="text-xl font-bold mb-2">Action</h3>
-                            <p className="text-gray-400">Test your reflexes and agility in intense combat scenarios</p>
+                            <p className="text-gray-400">Test your reflexes and agility in combat scenarios</p>
                         </div>
                     </div>
                 </div>
