@@ -12,13 +12,22 @@ const navItems = [
 const productDropdown = [
     { name: "Web Dev", path: "/webdev" },
     { name: "Desktop Dev", path: "/crm" },
-    { name: "Game Dev", path: "/space-shooter" }
+    {
+        name: "Game Dev",
+        path: null,
+        subMenu: [
+            {name: "Space Shooter", path: "/space-shooter"},
+            {name: "Top Down Shooter", path: "/top-down-shooter"}
+        ]
+    }
 ];
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [subMenuOpen, setSubMenuOpen] = useState(false);
+    const [hoverTimeout, setHoverTimeout] = useState(null);
 
     // Scroll detection
     useEffect(() => {
@@ -33,6 +42,13 @@ export default function Navbar() {
         document.body.style.overflow = open ? "hidden" : "";
         return () => (document.body.style.overflow = "");
     }, [open]);
+
+    // Clear timeout on unmounting
+    useEffect(() => {
+        return () => {
+            if (hoverTimeout) clearTimeout(hoverTimeout);
+        };
+    }, [hoverTimeout]);
 
     // Shared background/blur/shadow styles
     const bgClasses =
@@ -114,25 +130,100 @@ export default function Navbar() {
 
                                         <ul className="relative z-10 space-y-1">
                                             {productDropdown.map((product) => (
-                                                <li key={product.name}>
-                                                    <Link
-                                                        to={product.path}
-                                                        className="block px-5 py-3 rounded-xl text-gray-200 hover:bg-gray-700/50
-                                                                  hover:text-white transition-all duration-200 group/item"
-                                                    >
-                                                        <div className="flex items-center justify-between">
-                                                            <span>{product.name}</span>
-                                                            <svg
-                                                                className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100
-                                                                          group-hover/item:translate-x-0 transition-all duration-200"
-                                                                fill="none"
-                                                                stroke="currentColor"
-                                                                viewBox="0 0 24 24"
-                                                            >
-                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                                            </svg>
-                                                        </div>
-                                                    </Link>
+                                                <li
+                                                    key={product.name}
+                                                    onMouseEnter={() => {
+                                                        if (hoverTimeout) clearTimeout(hoverTimeout);
+                                                        if (product.subMenu) setSubMenuOpen(true);
+                                                    }}
+                                                    onMouseLeave={() => {
+                                                        if (product.subMenu) {
+                                                            const timeout = setTimeout(() => setSubMenuOpen(false), 150);
+                                                            setHoverTimeout(timeout);
+                                                        }
+                                                    }}
+                                                    className="relative"
+                                                >
+                                                    {product.path ? (
+                                                        <Link
+                                                            to={product.path}
+                                                            className="block px-5 py-3 rounded-xl text-gray-200 hover:bg-gray-700/50
+                                                                        hover:text-white transition-all duration-200 group/item"
+                                                        >
+                                                            <div className="flex items-center justify-between">
+                                                                <span>{product.name}</span>
+                                                                <svg
+                                                                    className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100
+                                                                                group-hover/item:translate-x-0 transition-all duration-200"
+                                                                    fill="none"
+                                                                    stroke="currentColor"
+                                                                    viewBox="0 0 24 24"
+                                                                >
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                                </svg>
+                                                            </div>
+                                                        </Link>
+                                                    ) : (
+                                                        <>
+                                                            <div className="block px-5 py-3 rounded-xl text-gray-200 hover:bg-gray-700/50
+                                                                            hover:text-white transition-all duration-200 cursor-pointer group/item">
+                                                                <div className="flex items-center justify-between">
+                                                                    <span>{product.name}</span>
+                                                                    <svg
+                                                                        className="w-4 h-4 transition-all duration-200"
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        viewBox="0 0 24 24"
+                                                                    >
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+
+                                                            {/* Sub-menu */}
+                                                            {product.subMenu && (
+                                                                <div className={`absolute left-full top-0 ml-2 w-52
+                                                                                transition-all duration-300 origin-left
+                                                                                ${subMenuOpen ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-95 -translate-x-2 pointer-events-none'}`}
+                                                                     onMouseEnter={() => {
+                                                                         if (hoverTimeout) clearTimeout(hoverTimeout);
+                                                                         setSubMenuOpen(true);
+                                                                     }}
+                                                                     onMouseLeave={() => {
+                                                                         const timeout = setTimeout(() => setSubMenuOpen(false), 150);
+                                                                         setHoverTimeout(timeout);
+                                                                     }}
+                                                                >
+                                                                    <div className="bg-gray-800 backdrop-blur-lg shadow-lg rounded-2xl p-3">
+                                                                        <ul className="space-y-1">
+                                                                            {product.subMenu.map((subItem) => (
+                                                                                <li key={subItem.name}>
+                                                                                    <Link
+                                                                                        to={subItem.path}
+                                                                                        className="block px-5 py-3 rounded-xl text-gray-200 hover:bg-gray-700/50
+                                                                      hover:text-white transition-all duration-200 group/subitem"
+                                                                                    >
+                                                                                        <div className="flex items-center justify-between">
+                                                                                            <span>{subItem.name}</span>
+                                                                                            <svg
+                                                                                                className="w-4 h-4 opacity-0 -translate-x-2 group-hover/subitem:opacity-100
+                                                                              group-hover/subitem:translate-x-0 transition-all duration-200"
+                                                                                                fill="none"
+                                                                                                stroke="currentColor"
+                                                                                                viewBox="0 0 24 24"
+                                                                                            >
+                                                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                                                            </svg>
+                                                                                        </div>
+                                                                                    </Link>
+                                                                                </li>
+                                                                            ))}
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                        </>
+                                                    )}
                                                 </li>
                                             ))}
                                         </ul>
@@ -188,7 +279,7 @@ export default function Navbar() {
                 >
                     <ul className="flex flex-col gap-4 text-base">
                         {navItems.map((item) => (
-                            <li key={item} className="relative">
+                            <li key={item.name} className="relative">
                                 {item.name === "Products" ? (
                                     <div>
                                         <button
@@ -206,18 +297,58 @@ export default function Navbar() {
                                             </svg>
                                         </button>
 
-                                        {/* Mobile Dropdown */}
-                                        <div className={`overflow-hidden transition-all duration-300 ${dropdownOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                        <div className={`overflow-hidden transition-all duration-300 ${dropdownOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                                             <ul className="mt-2 ml-4 space-y-2">
                                                 {productDropdown.map((product) => (
                                                     <li key={product.name}>
-                                                        <Link
-                                                            to={product.path}
-                                                            className="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gray-700/50 hover:text-white transition-all duration-200"
-                                                            onClick={() => setOpen(false)}
-                                                        >
-                                                            {product.name}
-                                                        </Link>
+                                                        {product.path ? (
+                                                            <Link
+                                                                to={product.path}
+                                                                className="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gray-700/50 hover:text-white transition-all duration-200"
+                                                                onClick={() => setOpen(false)}
+                                                            >
+                                                                {product.name}
+                                                            </Link>
+                                                        ) : (
+                                                            <>
+                                                                <button
+                                                                    className="w-full text-left py-2 px-4 rounded-lg text-gray-300 hover:bg-gray-700/50 hover:text-white transition-all duration-200 flex items-center justify-between"
+                                                                    onClick={() => setSubMenuOpen(!subMenuOpen)}
+                                                                >
+                                                                    <span>{product.name}</span>
+                                                                    <svg
+                                                                        className={`w-4 h-4 transition-transform duration-300 ${subMenuOpen ? 'rotate-180' : ''}`}
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        viewBox="0 0 24 24"
+                                                                    >
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                                    </svg>
+                                                                </button>
+
+                                                                {product.subMenu && (
+                                                                    <div className={`overflow-hidden transition-all duration-300 ${subMenuOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                                                        <ul className="mt-2 ml-4 space-y-2">
+                                                                            {product.subMenu.map((subItem) => (
+                                                                                <li key={subItem.name}>
+                                                                                    <Link
+                                                                                        to={subItem.path}
+                                                                                        className="block py-2 px-4 rounded-lg text-gray-300 hover:bg-gray-700/50 hover:text-white transition-all duration-200"
+                                                                                        onClick={() => {
+                                                                                            setOpen(false);
+                                                                                            setDropdownOpen(false);
+                                                                                            setSubMenuOpen(false);
+                                                                                        }}
+                                                                                    >
+                                                                                        {subItem.name}
+                                                                                    </Link>
+                                                                                </li>
+                                                                            ))}
+                                                                        </ul>
+                                                                    </div>
+                                                                )}
+                                                            </>
+                                                        )}
                                                     </li>
                                                 ))}
                                             </ul>
@@ -234,7 +365,7 @@ export default function Navbar() {
                                 )}
                                 <span className="absolute left-0 bottom-0 h-px w-full bg-white/10" />
                             </li>
-                            ))}
+                        ))}
                     </ul>
 
                     <div className="mt-6 flex gap-3">

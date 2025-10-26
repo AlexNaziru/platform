@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar.jsx";
 import WebDev from "./pages/WebDev.jsx";
 import SpaceShooter from "./pages/SpaceShooter.jsx";
 import CRM from "./pages/CRM.jsx";
+import TopDownShooter from "./pages/TopDownShooter.jsx";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                 <Route path='/' element={<Home/>} />
                 <Route path={'/webdev'} element={<WebDev/>} />
                 <Route path={'/space-shooter'} element={< SpaceShooter />} />
+                <Route path={'/top-down-shooter'} element={<TopDownShooter/>} />
                 <Route path={'/crm'} element={<CRM/>} />
                 <Route path='/ai' element={<Layout/>}>
                     <Route index element={<Dashboard/>} />

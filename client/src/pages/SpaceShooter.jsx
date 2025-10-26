@@ -116,10 +116,6 @@ const SpaceShooter = () => {
                             )}
                         </div>
                     </div>
-
-
-
-
                 </div>
 
                 {/* Floating elements */}
