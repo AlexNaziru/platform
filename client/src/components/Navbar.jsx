@@ -39,6 +39,11 @@ const productDropdown = [
                 description: "Classic 2D arcade space combat game"
             },
             {
+                name: "Red",
+                path: "/red",
+                description: "Classic 2D indie game"
+            },
+            {
                 name: "Top Down Shooter",
                 path: "/top-down-shooter",
                 description: "Fast-paced 3D action shooter"
@@ -108,7 +113,7 @@ export default function Navbar() {
                         alt="Company Logo"
                         className="h-8 w-8 object-cover"
                     />
-                    <span className="hidden sm:block font-semibold tracking-wide">Alex</span>
+                    <span className="hidden sm:block font-semibold tracking-wide">Sprite Labs</span>
                 </div>
 
                 {/* Desktop links */}
