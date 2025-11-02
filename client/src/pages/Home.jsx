@@ -3,6 +3,7 @@ import Creations from "../components/Creations.jsx";
 import About from "../components/About.jsx";
 import FAQ from "../components/FAQ.jsx";
 import Footer from "../components/Footer.jsx";
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -55,17 +56,19 @@ const Home = () => {
 
                     {/* CTA buttons */}
                     <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center transform transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                        <button className="group relative px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full font-semibold text-white shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden">
-                            <span className="absolute inset-0 bg-gradient-to-r from-violet-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                                <span className="relative flex items-center gap-2">
-                                    Get Started
-                              <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                              </svg>
-                            </span>
-                        </button>
+                        <Link to="/contact" className="block">
+                            <button className="group relative px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 rounded-full font-semibold text-white shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden cursor-pointer">
+                                <span className="absolute inset-0 bg-gradient-to-r from-violet-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                                    <span className="relative flex items-center gap-2">
+                                        Get Started
+                                  <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                  </svg>
+                                </span>
+                            </button>
+                        </Link>
 
-                        <button className="group px-8 py-4 border border-gray-600 rounded-full font-semibold text-gray-300 hover:text-white hover:border-gray-400 transition-all duration-300 hover:scale-105 active:scale-95 backdrop-blur-sm">
+                        <button className="group px-8 py-4 border border-gray-600 rounded-full font-semibold text-gray-300 hover:text-white hover:border-gray-400 transition-all duration-300 hover:scale-105 active:scale-95 backdrop-blur-sm cursor-pointer">
                             <span className="flex items-center gap-2">
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -73,6 +76,7 @@ const Home = () => {
                               Learn More
                             </span>
                         </button>
+
                     </div>
 
                     {/* Floating elements */}

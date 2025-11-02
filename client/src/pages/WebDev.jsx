@@ -116,23 +116,6 @@ const WebDev = () => {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
 
-                            {/* Floating info card */}
-                            <div className="absolute bottom-8 left-8 right-8 bg-gray-900/80 backdrop-blur-md border border-gray-700/50 rounded-2xl p-6">
-                                <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl">
-                                        🌾
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-white">Live Demo Available</h3>
-                                        <p className="text-gray-400 text-sm">Experience the platform in action</p>
-                                    </div>
-                                </div>
-                                <div className="flex gap-3">
-                                    <button className="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl font-semibold text-white hover:scale-105 transition-transform duration-300">
-                                        View Live Demo
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

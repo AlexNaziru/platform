@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
 
@@ -23,7 +24,8 @@ const About = () => {
                 "Interactive mapping interface"
             ],
             tech: ["GIS", "Web Mapping", "Real-time Data"],
-            gradient: "from-blue-500 to-indigo-600"
+            gradient: "from-blue-500 to-indigo-600",
+            path: "/webdev"
         },
         {
             id: 2,
@@ -109,8 +111,8 @@ const About = () => {
                                     {app.icon}
                                 </div>
                                 <span className="text-xs font-medium text-violet-300 bg-violet-500/20 px-3 py-1 rounded-full">
-                  {app.category}
-                </span>
+                                  {app.category}
+                                </span>
                             </div>
 
                             {/* Title and description */}
@@ -138,20 +140,22 @@ const About = () => {
                                         key={techIndex}
                                         className="text-xs px-3 py-1 bg-gray-700/50 text-gray-300 rounded-full border border-gray-600/30"
                                     >
-                    {tech}
-                  </span>
+                                    {tech}
+                                  </span>
                                 ))}
                             </div>
 
                             {/* CTA button */}
-                            <button className={`group/btn w-full py-3 px-4 bg-gradient-to-r ${app.gradient} rounded-xl font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden`}>
-                <span className="relative flex items-center justify-center gap-2">
-                  Learn More
-                  <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-                            </button>
+                            <Link to={app.path} className="block">
+                                <button className={`group/btn w-full py-3 px-4 bg-gradient-to-r ${app.gradient} rounded-xl font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 overflow-hidden`}>
+                                    <span className="relative flex items-center justify-center gap-2">
+                                      Learn More
+                                      <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                      </svg>
+                                    </span>
+                                </button>
+                            </Link>
 
                             {/* Floating decoration */}
                             <div className={`absolute top-4 right-4 w-12 h-12 border border-violet-400/30 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse`}></div>

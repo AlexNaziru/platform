@@ -10,6 +10,7 @@ import SpaceShooter from "./pages/SpaceShooter.jsx";
 import CRM from "./pages/CRM.jsx";
 import TopDownShooter from "./pages/TopDownShooter.jsx";
 import Red from "./pages/Red.jsx";
+import Contact from "./pages/Contact.jsx";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
             <Navbar/>
             <Routes>
                 <Route path='/' element={<Home/>} />
+                <Route path={'/contact'} element={<Contact/>} />
                 <Route path={'/webdev'} element={<WebDev/>} />
                 <Route path={'/space-shooter'} element={< SpaceShooter />} />
                 <Route path={'/top-down-shooter'} element={<TopDownShooter/>} />
