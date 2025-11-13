@@ -46,7 +46,7 @@ const WebDev = () => {
     const screenshots = [
         {
             url: farm_admin,
-            title: "Main Dashboard",
+            title: "Main UserDash",
             description: "Main interface showing real time data"
         },
         {

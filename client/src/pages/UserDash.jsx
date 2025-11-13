@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Dashboard = () => {
+const UserDash = () => {
     return (
         <div>Dashboard</div>
     )
 }
-export default Dashboard
+export default UserDash

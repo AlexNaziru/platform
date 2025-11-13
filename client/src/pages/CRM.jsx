@@ -14,7 +14,7 @@ const Crm = () => {
     const screenshots = [
         {
             url: crm1,
-            title: "Main Dashboard",
+            title: "Main UserDash",
             description: "Main interface showing real time data"
         },
         {

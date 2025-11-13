@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import logo from "../assets/computer.png";
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import  {useClerk, UserButton, useUser} from '@clerk/clerk-react';
 
 const navItems = [
     { name: "Home", path: "/" },
@@ -58,6 +59,11 @@ export default function Navbar() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [subMenuOpen, setSubMenuOpen] = useState(false);
     const [hoverTimeout, setHoverTimeout] = useState(null);
+
+    // Clerk hooks
+    const navigate = useNavigate();
+    const { user } = useUser();
+    const { openSignIn } = useClerk();
 
     // Scroll detection
     useEffect(() => {
@@ -218,9 +224,17 @@ export default function Navbar() {
                 {/* Right actions (desktop) */}
                 <div className="hidden md:flex items-center">
                     <div className="rainbow relative z-0 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
-                        <button className="px-6 text-sm py-1 text-gray-200 rounded-full font-medium bg-gray-800">
-                            Log In
-                        </button>
+
+                        {
+                            user ? <UserButton />
+                                :
+                            (
+                                <button onClick={openSignIn} className="px-6 text-sm py-1 text-gray-200 rounded-full font-medium bg-gray-800">
+                                    Log In
+                                </button>
+                            )
+                        }
+
                     </div>
                 </div>
 
