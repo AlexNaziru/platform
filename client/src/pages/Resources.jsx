@@ -8,7 +8,7 @@ const Resources = () => {
     }, []);
     return (
         <>
-            <div className='min-h-screen w-full bg-slate-950 flex flex-col items-center justify-center text-white relative overflow-hidden py-30'>
+            <div className='"w-full bg-slate-950 flex flex-col items-center justify-center text-white relative overflow-hidden py-24'>
 
                 {/* Animated background elements */}
                 <div className="absolute inset-0 overflow-hidden">

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: platform-api
+    env: node
+    rootDirectory: platform/server
+    buildCommand: "npm ci"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CLIENT_ORIGIN
+        value: https://platform-i55q.onrender.com
+      - key: STORAGE_DRIVER
+        value: local

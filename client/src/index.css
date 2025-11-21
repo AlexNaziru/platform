@@ -5,3 +5,11 @@
     font-family: "Roboto", sans-serif;
 }
 
+html, body, #root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #020617; /* Tailwind bg-slate-950 */
+}

@@ -2,7 +2,6 @@ import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from "./pages/Home.jsx";
 import Layout from "./pages/Layout.jsx";
-import UserDash from "./pages/UserDash.jsx";
 import Control from "./pages/Control.jsx";
 import Navbar from "./components/Navbar.jsx";
 import WebDev from "./pages/WebDev.jsx";
@@ -42,7 +41,6 @@ const App = () => {
                            </ProtectedRoute>
                        }
                 >
-                    <Route index element={<UserDash/>} />
                     <Route path='control' element={<Control/>} />
                     <Route path='users' element={<Users />} />
                     <Route path='uploads' element={<Uploads />} />
